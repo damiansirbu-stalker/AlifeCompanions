@@ -49,7 +49,9 @@ Configuration:
 All settings in MCM under Standalone Companions. Per-companion tabs for individual control. Companions are enabled with auto-spawn by default.
 
 Compatibility:
-Tested with vanilla Anomaly 1.5.3, Demonized main, Demonized MT, and AOEngine (latest versions).
+Requires xlibs.
+Runs on themrdemonized modded exes 2025.9.10 or newer, or AOEngine v0.55 or newer.
+The full feature set needs the latest demonized build. A feature that needs a newer build stays inactive on older exes.
 Uses standard Anomaly companion system (axr_companions). Compatible with GAMMA and other companion mods. Does not modify base scripts.
 
 Credits:
@@ -66,3 +68,14 @@ Usage and License:
   Addons, patches, integrations: allowed. Credit "Standalone Companions by Damian Sirbu" visibly on your mod page.
   Reproducing the implementation in other software: not allowed, even with credit.
   Full license in LICENSE file and on GitHub.
+
+Reporting issues and suggestions
+Open a bug report or a suggestion at https://github.com/damiansirbu-stalker/Standalone-Companions/issues/new/choose.
+Also discussed on the GAMMA, EFP, Anomaly, and Zona Discord servers.
+
+Before posting, read this readme and the MCM options.
+
+Include:
+- Exact steps to reproduce, from a new game or a named save, with expected and actual result.
+- xray.log and the mod debug log (MCM log level DEBUG), plus engine build, modlist, load order.
+- Describe the behavior. With hundreds of mods and overrides, only the log shows whether this mod was involved and what caused it.
