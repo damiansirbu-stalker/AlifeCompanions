@@ -54,6 +54,10 @@ Runs on themrdemonized modded exes 2025.9.10 or newer, or AOEngine v0.55 or newe
 The full feature set needs the latest demonized build. A feature that needs a newer build stays inactive on older exes.
 Uses standard Anomaly companion system (axr_companions). Compatible with GAMMA and other companion mods. Does not modify base scripts.
 
+FAQ:
+Do I need modded exes?
+  Yes. Standalone Companions needs themrdemonized modded exes (2025.9.10 or newer) or AOEngine (v0.55 or newer). Vanilla Anomaly does not expose the APIs it relies on.
+
 Credits:
 Altogolik - support, ideas, source materials
 
