@@ -2,7 +2,7 @@
 local assert, tostring, type = assert, tostring, type
 
 local MOD_NAME = "Standalone Companions"
-local _VERSION = "1.0.4"
+local _VERSION = "next"
 local XLIBS_MIN_VERSION = "1.5.1"
 local XLIBS_URL = "https://www.moddb.com/mods/stalker-anomaly/addons/xlibs-1001"
 local DEMONIZED_MIN_VERSION = 20250908
