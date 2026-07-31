@@ -74,12 +74,8 @@ Usage and License:
   Full license in LICENSE file and on GitHub.
 
 Reporting issues and suggestions
-Open a bug report or a suggestion at https://github.com/damiansirbu-stalker/Standalone-Companions/issues/new/choose.
-Also discussed on the GAMMA, EFP, Anomaly, and Zona Discord servers.
+Open a report at https://github.com/damiansirbu-stalker/Standalone-Companions/issues/new/choose, or ask on the GAMMA, EFP, Anomaly, and Zona Discord servers. Read this readme and the MCM options first.
 
-Before posting, read this readme and the MCM options.
+Include: exact repro steps (new game or named save, expected vs actual), engine build, modlist, load order, xray.log, and the mod debug log. With hundreds of mods loaded, only the log shows whether this one was involved.
 
-Include:
-- Exact steps to reproduce, from a new game or a named save, with expected and actual result.
-- xray.log and the mod debug log (MCM log level DEBUG), plus engine build, modlist, load order.
-- Describe the behavior. With hundreds of mods and overrides, only the log shows whether this mod was involved and what caused it.
+The debug log is required, so set the MCM log level to DEBUG, reproduce, then set it back to WARN. DEBUG is not free: it writes a line for every event and can hitch a single-threaded exe.
