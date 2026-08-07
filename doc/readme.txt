@@ -48,6 +48,9 @@ Disable or remove in MO2.
 Configuration:
 All settings in MCM under Standalone Companions. Per-companion tabs for individual control. Companions are enabled with auto-spawn by default.
 
+Performance:
+Performance comes first, ahead of any feature. When a feature cannot fit the budget it is reworked, replaced, or removed with an X-Ray engine modification rather than allowed to slow the game. Measured on the engine built from the latest source with no multithreading and no optimizations, so the timings are worst-case; the optimized multithreaded build you run is always faster.
+
 Compatibility:
 Requires xlibs.
 Runs on themrdemonized modded exes 2025.9.10 or newer, or AOEngine v0.55 or newer.
