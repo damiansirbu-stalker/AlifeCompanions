@@ -53,7 +53,7 @@ TIMING = {
 }
 
 -- ==================== MESSAGES ====================
--- Uses xstring.format syntax: {key} placeholders
+-- Uses xstring.interpolate syntax: {key} placeholders
 
 MESSAGES = {
     teleported_to_player = "{name} teleported to your location.",

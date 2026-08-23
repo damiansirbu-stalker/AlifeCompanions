@@ -13,7 +13,7 @@ local RegisterScriptCallback = RegisterScriptCallback
 local INVALID_LEVEL_VERTEX_ID = xconst.INVALID_LEVEL_VERTEX_ID
 
 -- xlibs utilities
-local format = xstring.format
+local format = xstring.interpolate
 
 -- ==================== LOGGING ====================
 
@@ -306,7 +306,7 @@ function teleport_to_companion(companion_id)
     local se_obj = find_companion(companion_id)
 
     if not se_obj then
-        local msg = data.MESSAGES.companion_not_found:format(companion.display_name)
+        local msg = format(data.MESSAGES.companion_not_found, {name = companion.display_name})
         news_manager.send_tip(db.actor, msg, nil, nil, 5000)
         return false
     end
@@ -332,7 +332,7 @@ function teleport_to_companion(companion_id)
     else
         -- Same level - direct teleport
         db.actor:set_actor_position(pos)
-        local msg = data.MESSAGES.teleported_to_companion:format(companion.display_name)
+        local msg = format(data.MESSAGES.teleported_to_companion, {name = companion.display_name})
         news_manager.send_tip(db.actor, msg, nil, nil, 5000)
         log_info("Teleported player to %s", companion_id)
     end
