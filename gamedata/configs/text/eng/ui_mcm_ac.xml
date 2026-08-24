@@ -21,126 +21,126 @@
 
 	<!-- ==================== GENERAL TAB ==================== -->
 
-	<string id="ui_mcm_sc_title">
+	<string id="ui_mcm_ac_title">
 		<text>Standalone Companions</text>
 	</string>
 
-	<string id="ui_mcm_sc_general_desc">
+	<string id="ui_mcm_ac_general_desc">
 		<text>Custom companions without quest requirements. Each companion can be enabled/disabled individually.</text>
 	</string>
 
-	<string id="ui_mcm_sc_hdr_debug">
+	<string id="ui_mcm_ac_hdr_debug">
 		<text>Debug Options</text>
 	</string>
 
-	<string id="ui_mcm_sc_general_debug_log">
+	<string id="ui_mcm_ac_general_debug_log">
 		<text>Enable Debug Logging</text>
 	</string>
-	<string id="ui_mcm_sc_general_debug_log_desc">
+	<string id="ui_mcm_ac_general_debug_log_desc">
 		<text>Write detailed logs to appdata/logs/sc.log for troubleshooting.</text>
 	</string>
 
 	<!-- ==================== COMMON HEADERS ==================== -->
 
-	<string id="ui_mcm_sc_hdr_settings">
+	<string id="ui_mcm_ac_hdr_settings">
 		<text>Settings</text>
 	</string>
 
-	<string id="ui_mcm_sc_hdr_actions">
+	<string id="ui_mcm_ac_hdr_actions">
 		<text>Actions</text>
 	</string>
 
-	<string id="ui_mcm_sc_hdr_debug_actions">
+	<string id="ui_mcm_ac_hdr_debug_actions">
 		<text>Debug</text>
 	</string>
 
 	<!-- ==================== COMMON OPTIONS ==================== -->
 
-	<string id="ui_mcm_sc_anna_enabled">
+	<string id="ui_mcm_ac_anna_enabled">
 		<text>Enable Anna</text>
 	</string>
-	<string id="ui_mcm_sc_anna_enabled_desc">
+	<string id="ui_mcm_ac_anna_enabled_desc">
 		<text>Allow Anna to exist in the game world.</text>
 	</string>
 
-	<string id="ui_mcm_sc_anna_auto_spawn">
+	<string id="ui_mcm_ac_anna_auto_spawn">
 		<text>Auto-Spawn</text>
 	</string>
-	<string id="ui_mcm_sc_anna_auto_spawn_desc">
+	<string id="ui_mcm_ac_anna_auto_spawn_desc">
 		<text>Automatically spawn Anna at Rostok Bar if she doesn't exist.</text>
 	</string>
 
-	<string id="ui_mcm_sc_mila_enabled">
+	<string id="ui_mcm_ac_mila_enabled">
 		<text>Enable Mila</text>
 	</string>
-	<string id="ui_mcm_sc_mila_enabled_desc">
+	<string id="ui_mcm_ac_mila_enabled_desc">
 		<text>Allow Mila to exist in the game world.</text>
 	</string>
 
-	<string id="ui_mcm_sc_mila_auto_spawn">
+	<string id="ui_mcm_ac_mila_auto_spawn">
 		<text>Auto-Spawn</text>
 	</string>
-	<string id="ui_mcm_sc_mila_auto_spawn_desc">
+	<string id="ui_mcm_ac_mila_auto_spawn_desc">
 		<text>Automatically spawn Mila at Dead City if she doesn't exist.</text>
 	</string>
 
 	<!-- ==================== BUTTONS ==================== -->
 
-	<string id="ui_mcm_sc_anna_btn_teleport">
+	<string id="ui_mcm_ac_anna_btn_teleport">
 		<text>Teleport to Me</text>
 	</string>
-	<string id="ui_mcm_sc_anna_btn_teleport_desc">
+	<string id="ui_mcm_ac_anna_btn_teleport_desc">
 		<text>Teleport Anna to your current location. Creates her if she doesn't exist.</text>
 	</string>
 
-	<string id="ui_mcm_sc_anna_btn_goto">
+	<string id="ui_mcm_ac_anna_btn_goto">
 		<text>Go to Anna</text>
 	</string>
-	<string id="ui_mcm_sc_anna_btn_goto_desc">
+	<string id="ui_mcm_ac_anna_btn_goto_desc">
 		<text>Teleport yourself to Anna's current location. Find where she wandered off to.</text>
 	</string>
 
-	<string id="ui_mcm_sc_anna_btn_reset_death">
+	<string id="ui_mcm_ac_anna_btn_reset_death">
 		<text>Reset Death Status</text>
 	</string>
-	<string id="ui_mcm_sc_anna_btn_reset_death_desc">
+	<string id="ui_mcm_ac_anna_btn_reset_death_desc">
 		<text>Clear Anna's permadeath flag. Debug only.</text>
 	</string>
 
-	<string id="ui_mcm_sc_mila_btn_teleport">
+	<string id="ui_mcm_ac_mila_btn_teleport">
 		<text>Teleport to Me</text>
 	</string>
-	<string id="ui_mcm_sc_mila_btn_teleport_desc">
+	<string id="ui_mcm_ac_mila_btn_teleport_desc">
 		<text>Teleport Mila to your current location. Creates her if she doesn't exist.</text>
 	</string>
 
-	<string id="ui_mcm_sc_mila_btn_goto">
+	<string id="ui_mcm_ac_mila_btn_goto">
 		<text>Go to Mila</text>
 	</string>
-	<string id="ui_mcm_sc_mila_btn_goto_desc">
+	<string id="ui_mcm_ac_mila_btn_goto_desc">
 		<text>Teleport yourself to Mila's current location. Find where she wandered off to.</text>
 	</string>
 
-	<string id="ui_mcm_sc_mila_btn_reset_death">
+	<string id="ui_mcm_ac_mila_btn_reset_death">
 		<text>Reset Death Status</text>
 	</string>
-	<string id="ui_mcm_sc_mila_btn_reset_death_desc">
+	<string id="ui_mcm_ac_mila_btn_reset_death_desc">
 		<text>Clear Mila's permadeath flag. Debug only.</text>
 	</string>
 
 	<!-- ==================== COMPANION TABS ==================== -->
 
-	<string id="ui_mcm_sc_anna_title">
+	<string id="ui_mcm_ac_anna_title">
 		<text>Anna (Duty)</text>
 	</string>
-	<string id="ui_mcm_sc_anna_desc">
+	<string id="ui_mcm_ac_anna_desc">
 		<text>Duty sniper. Spawns at Rostok Bar. Requires 2000+ Duty goodwill or Duty membership to recruit.</text>
 	</string>
 
-	<string id="ui_mcm_sc_mila_title">
+	<string id="ui_mcm_ac_mila_title">
 		<text>Mila (Mercenary)</text>
 	</string>
-	<string id="ui_mcm_sc_mila_desc">
+	<string id="ui_mcm_ac_mila_desc">
 		<text>Mercenary. Spawns at Dead City. Costs 100,000 rubles to hire.</text>
 	</string>
 

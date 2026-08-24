@@ -1,4 +1,4 @@
---- zzz_sc_data: Static data - companion definitions, constants, defaults
+--- zzz_ac_data: Static data - companion definitions, constants, defaults
 
 -- ==================== COMPANION DEFINITIONS ====================
 
@@ -69,4 +69,4 @@ MESSAGES = {
 
 -- ==================== PERMADEATH ====================
 
-PERMADEATH_SAVE_PREFIX = "sc_dead_"
+PERMADEATH_SAVE_PREFIX = "ac_dead_"

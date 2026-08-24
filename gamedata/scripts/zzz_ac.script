@@ -1,8 +1,8 @@
---- zzz_sc: Standalone Companions core - spawn, teleport, permadeath, discovery
+--- zzz_ac: AlifeCompanions core - spawn, teleport, permadeath, discovery
 
 -- ==================== IMPORTS ====================
 
-local data = zzz_sc_data
+local data = zzz_ac_data
 
 -- ==================== CACHED GLOBALS ====================
 
@@ -29,7 +29,7 @@ local cfg = nil
 local mcm = nil
 
 local function init_config()
-    mcm = zzz_sc_mcm
+    mcm = zzz_ac_mcm
     if mcm and mcm.get_config then
         cfg = {
             get = function(key) return mcm.get_config(key) end
@@ -349,7 +349,7 @@ local spawned_this_session = {}
     Called on first update after game load.
 ]]
 local function _try_spawn_delayed(id, delay_time)
-    CreateTimeEvent("sc_spawn", id, delay_time, function()
+    CreateTimeEvent("ac_spawn", id, delay_time, function()
         if not companion_exists(id) and not is_dead(id) then spawn_at_default(id) end
         spawned_this_session[id] = true
         return true
@@ -418,7 +418,7 @@ end
 -- ==================== CALLBACKS ====================
 
 function actor_on_first_update()
-    CreateTimeEvent("sc_init", "auto_spawn", data.TIMING.spawn_delay_sec, function()
+    CreateTimeEvent("ac_init", "auto_spawn", data.TIMING.spawn_delay_sec, function()
         auto_spawn_all()
         return true
     end)
@@ -439,7 +439,7 @@ function on_game_start()
         log.set_level(cfg.debug_log and "DEBUG" or "INFO")
     end
 
-    log.info("Standalone Companions v%s (xlibs v%s)", _sc_deps.get_version(), xlibs.get_version())
+    log.info("AlifeCompanions v%s (xlibs v%s)", _ac_deps.get_version(), xlibs.get_version())
 
     RegisterScriptCallback("actor_on_first_update", actor_on_first_update)
     RegisterScriptCallback("npc_on_death_callback", on_npc_death)

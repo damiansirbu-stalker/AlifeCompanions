@@ -1,8 +1,8 @@
---- zzz_sc_dialogs: Dialog preconditions and actions for companion recruitment
+--- zzz_ac_dialogs: Dialog preconditions and actions for companion recruitment
 
 -- ==================== IMPORTS ====================
 
-local data = zzz_sc_data
+local data = zzz_ac_data
 
 -- ==================== CACHED GLOBALS ====================
 

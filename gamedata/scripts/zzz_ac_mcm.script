@@ -1,8 +1,8 @@
---- zzz_sc_mcm: MCM configuration - per-companion toggles and teleport buttons
+--- zzz_ac_mcm: MCM configuration - per-companion toggles and teleport buttons
 
 -- ==================== IMPORTS ====================
 
-local data = zzz_sc_data
+local data = zzz_ac_data
 
 -- ==================== CACHED GLOBALS ====================
 
@@ -37,7 +37,7 @@ local path_builder = function(key)
     end
     return "sc/" .. key
 end
-cfg, get_config, load_config = xmcm.create_config("sc", defaults, path_builder)
+cfg, get_config, load_config = xmcm.create_config("ac", defaults, path_builder)
 
 -- ==================== BUTTON HANDLERS ====================
 
@@ -46,8 +46,8 @@ cfg, get_config, load_config = xmcm.create_config("sc", defaults, path_builder)
     Teleports companion TO player.
 ]]
 function btn_teleport_to_player(companion_id)
-    if zzz_sc and zzz_sc.teleport_to_player then
-        zzz_sc.teleport_to_player(companion_id)
+    if zzz_ac and zzz_ac.teleport_to_player then
+        zzz_ac.teleport_to_player(companion_id)
     end
 end
 
@@ -56,8 +56,8 @@ end
     Teleports player TO companion.
 ]]
 function btn_go_to_companion(companion_id)
-    if zzz_sc and zzz_sc.teleport_to_companion then
-        zzz_sc.teleport_to_companion(companion_id)
+    if zzz_ac and zzz_ac.teleport_to_companion then
+        zzz_ac.teleport_to_companion(companion_id)
     end
 end
 
@@ -65,8 +65,8 @@ end
     Debug: Reset companion death status.
 ]]
 function btn_reset_death(companion_id)
-    if zzz_sc and zzz_sc.reset_death then
-        zzz_sc.reset_death(companion_id)
+    if zzz_ac and zzz_ac.reset_death then
+        zzz_ac.reset_death(companion_id)
         if db.actor then
             local companion = data.COMPANIONS[companion_id]
             local msg = (companion and companion.display_name or companion_id) .. " death status reset."
@@ -84,16 +84,16 @@ function on_mcm_load()
             id = "general",
             sh = true,
             gr = {
-                { id = "title", type = "slide", link = "sc_mcm_banner", text = "ui_mcm_sc_title", size = {512, 50}, spacing = 20 },
-                { id = "desc", type = "desc", text = "ui_mcm_sc_general_desc" },
+                { id = "title", type = "slide", link = "ac_mcm_banner", text = "ui_mcm_ac_title", size = {512, 50}, spacing = 20 },
+                { id = "desc", type = "desc", text = "ui_mcm_ac_general_desc" },
 
                 -- Debug
                 { id = "div_debug", type = "line" },
-                { id = "hdr_debug", type = "desc", text = "ui_mcm_sc_hdr_debug", clr = {255, 200, 200, 200} },
+                { id = "hdr_debug", type = "desc", text = "ui_mcm_ac_hdr_debug", clr = {255, 200, 200, 200} },
                 { id = "debug_log", type = "check", val = 1, def = false },
                 { id = "div_version", type = "line" },
-                { id = "version", type = "desc", text = "ui_mcm_sc_hdr_debug",
-                    ui_hook_functor = { zzz_sc_mcm.set_version_text }, clr = {255, 212, 201, 168} },
+                { id = "version", type = "desc", text = "ui_mcm_ac_hdr_debug",
+                    ui_hook_functor = { zzz_ac_mcm.set_version_text }, clr = {255, 212, 201, 168} },
             },
         },
     }
@@ -104,24 +104,24 @@ function on_mcm_load()
             id = companion_id,
             sh = true,
             gr = {
-                { id = "title", type = "slide", link = "sc_mcm_banner", text = "ui_mcm_sc_" .. companion_id .. "_title", size = {512, 50}, spacing = 20 },
-                { id = "desc", type = "desc", text = "ui_mcm_sc_" .. companion_id .. "_desc" },
+                { id = "title", type = "slide", link = "ac_mcm_banner", text = "ui_mcm_ac_" .. companion_id .. "_title", size = {512, 50}, spacing = 20 },
+                { id = "desc", type = "desc", text = "ui_mcm_ac_" .. companion_id .. "_desc" },
 
                 -- Enable/Disable
                 { id = "div_main", type = "line" },
-                { id = "hdr_main", type = "desc", text = "ui_mcm_sc_hdr_settings", clr = {255, 200, 200, 200} },
+                { id = "hdr_main", type = "desc", text = "ui_mcm_ac_hdr_settings", clr = {255, 200, 200, 200} },
                 { id = "enabled", type = "check", val = 1, def = true },
                 { id = "auto_spawn", type = "check", val = 1, def = true },
 
                 -- Teleport buttons
                 { id = "div_actions", type = "line" },
-                { id = "hdr_actions", type = "desc", text = "ui_mcm_sc_hdr_actions", clr = {255, 200, 200, 200} },
+                { id = "hdr_actions", type = "desc", text = "ui_mcm_ac_hdr_actions", clr = {255, 200, 200, 200} },
                 { id = "btn_teleport", type = "button", functor = { btn_teleport_to_player, companion_id } },
                 { id = "btn_goto", type = "button", functor = { btn_go_to_companion, companion_id } },
 
                 -- Debug actions
                 { id = "div_debug", type = "line" },
-                { id = "hdr_debug_actions", type = "desc", text = "ui_mcm_sc_hdr_debug_actions", clr = {255, 200, 200, 200} },
+                { id = "hdr_debug_actions", type = "desc", text = "ui_mcm_ac_hdr_debug_actions", clr = {255, 200, 200, 200} },
                 { id = "btn_reset_death", type = "button", functor = { btn_reset_death, companion_id } },
             },
         }
@@ -132,7 +132,7 @@ function on_mcm_load()
 end
 
 function set_version_text(_anchor, handlers)
-    handlers.desc:SetText(_sc_deps.get_version())
+    handlers.desc:SetText(_ac_deps.get_version())
 end
 
 function on_game_start()

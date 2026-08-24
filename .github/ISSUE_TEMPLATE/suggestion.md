@@ -1,6 +1,6 @@
 ---
 name: Suggestion
-about: Propose an idea or feature for Standalone Companions
+about: Propose an idea or feature for AlifeCompanions
 title: ''
 labels: suggestion
 ---

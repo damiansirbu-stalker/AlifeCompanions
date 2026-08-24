@@ -77,7 +77,7 @@
 </dialog>
 
 <dialog id="mila_hire_dialog">
-	<precondition>zzz_sc_dialogs.can_recruit</precondition>
+	<precondition>zzz_ac_dialogs.can_recruit</precondition>
 	<phrase_list>
 		<phrase id="0">
 			<text>mila_hire_0</text>
@@ -89,13 +89,13 @@
 		</phrase>
 		<phrase id="2">
 			<text>mila_hire_2</text>
-			<action>zzz_sc_dialogs.do_recruit</action>
+			<action>zzz_ac_dialogs.do_recruit</action>
 		</phrase>
 	</phrase_list>
 </dialog>
 
 <dialog id="mila_cannot_afford_dialog">
-	<precondition>zzz_sc_dialogs.cannot_recruit</precondition>
+	<precondition>zzz_ac_dialogs.cannot_recruit</precondition>
 	<phrase_list>
 		<phrase id="0">
 			<text>mila_hire_0</text>
@@ -108,7 +108,7 @@
 </dialog>
 
 <dialog id="mila_leave_dialog">
-	<precondition>zzz_sc_dialogs.is_companion</precondition>
+	<precondition>zzz_ac_dialogs.is_companion</precondition>
 	<phrase_list>
 		<phrase id="0">
 			<text>mila_leave_0</text>
@@ -116,7 +116,7 @@
 		</phrase>
 		<phrase id="1">
 			<text>mila_leave_1</text>
-			<action>zzz_sc_dialogs.do_leave</action>
+			<action>zzz_ac_dialogs.do_leave</action>
 		</phrase>
 	</phrase_list>
 </dialog>

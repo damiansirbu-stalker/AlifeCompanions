@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Report a bug in Standalone Companions
+about: Report a bug in AlifeCompanions
 title: ''
 labels: bug
 ---
@@ -16,7 +16,7 @@ labels: bug
 2.
 
 ## Versions
-- Standalone Companions:
+- AlifeCompanions:
 - Anomaly: 1.5.3 (Modded exes y/n)
 - GAMMA / standalone:
 
@@ -26,7 +26,7 @@ Attach `D:\Anomaly\appdata\logs\standalone_companions.log` and `xray_<user>.log`
 Without these the report will likely be closed unactioned.
 
 **Enable debug logging first, then reproduce:**
-1. Main menu -> Mod Configuration Menu -> Standalone Companions -> tick `debug_log`
+1. Main menu -> Mod Configuration Menu -> AlifeCompanions -> tick `debug_log`
 2. Save, load your save
 3. Reproduce the bug
 4. Attach `standalone_companions.log`

@@ -83,7 +83,7 @@
 	<string id="ui_mcm_standalone_companions_title">
 		<text>Standalone Companions</text>
 	</string>
-	<string id="ui_mcm_sc_anna_header">
+	<string id="ui_mcm_ac_anna_header">
 		<text>Anna (Duty)</text>
 	</string>
 
@@ -101,16 +101,16 @@
 		<text>Choose when and where Anna should spawn.</text>
 	</string>
 
-	<string id="sc_spawn_disabled">
+	<string id="ac_spawn_disabled">
 		<text>Disabled</text>
 	</string>
-	<string id="sc_spawn_new_game">
+	<string id="ac_spawn_new_game">
 		<text>New Game Only (Rostok)</text>
 	</string>
-	<string id="sc_spawn_rostok">
+	<string id="ac_spawn_rostok">
 		<text>Spawn at Rostok</text>
 	</string>
-	<string id="sc_spawn_deadcity">
+	<string id="ac_spawn_deadcity">
 		<text>Spawn at Dead City</text>
 	</string>
 
@@ -206,7 +206,7 @@
 	</string>
 
 	<!-- MCM Menu - Mila -->
-	<string id="ui_mcm_sc_mila_header">
+	<string id="ui_mcm_ac_mila_header">
 		<text>Mila (Mercenary)</text>
 	</string>
 
