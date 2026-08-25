@@ -1,4 +1,4 @@
-# AlifeCompanions: custom companions for STALKER Anomaly
+# AlifeCompanions: Custom companions for STALKER Anomaly
 
 Companions with no quest requirements, recruited by talking to them.
 Each one has their own location, personality and terms, and permadeath applies, so a companion who dies stays dead.
