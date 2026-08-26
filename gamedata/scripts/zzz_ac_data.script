@@ -1,6 +1,6 @@
 --- zzz_ac_data: Static data - companion definitions, constants, defaults
 
--- ==================== COMPANION DEFINITIONS ====================
+-- COMPANION DEFINITIONS
 
 COMPANIONS = {
     anna = {
@@ -34,7 +34,7 @@ COMPANIONS = {
     },
 }
 
--- ==================== MCM DEFAULTS ====================
+-- MCM DEFAULTS
 
 MCM_DEFAULTS = {
     -- Global
@@ -45,14 +45,14 @@ MCM_DEFAULTS = {
     auto_spawn = true,
 }
 
--- ==================== TIMING ====================
+-- TIMING
 
 TIMING = {
     spawn_delay_sec = 3,
     spawn_stagger_sec = 1,
 }
 
--- ==================== MESSAGES ====================
+-- MESSAGES
 -- Uses xstring.interpolate syntax: {key} placeholders
 
 MESSAGES = {
@@ -67,6 +67,6 @@ MESSAGES = {
     hired = "{name} has joined you. {cost} RU transferred.",
 }
 
--- ==================== PERMADEATH ====================
+-- PERMADEATH
 
 PERMADEATH_SAVE_PREFIX = "ac_dead_"

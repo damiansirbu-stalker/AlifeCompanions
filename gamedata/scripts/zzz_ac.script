@@ -1,10 +1,10 @@
 --- zzz_ac: AlifeCompanions core - spawn, teleport, permadeath, discovery
 
--- ==================== IMPORTS ====================
+-- IMPORTS
 
 local data = zzz_ac_data
 
--- ==================== CACHED GLOBALS ====================
+-- CACHED GLOBALS
 
 local pairs, alife, level, db = pairs, alife, level, db
 local get_story_se_object, se_load_var, se_save_var = get_story_se_object, se_load_var, se_save_var
@@ -15,7 +15,7 @@ local INVALID_LEVEL_VERTEX_ID = xconst.INVALID_LEVEL_VERTEX_ID
 -- xlibs utilities
 local format = xstring.interpolate
 
--- ==================== LOGGING ====================
+-- LOGGING
 
 local log = xlog.get_logger("SC.CORE", { outfile = "standalone_companions.log" })
 local function log_info(msg, ...)  if log then log.info(msg, ...)  end end
@@ -23,7 +23,7 @@ local function log_debug(msg, ...) if log then log.debug(msg, ...) end end
 local function log_warn(msg, ...)  if log then log.warn(msg, ...)  end end
 local function log_error(msg, ...) if log then log.error(msg, ...) end end
 
--- ==================== CONFIGURATION ====================
+-- CONFIGURATION
 
 local cfg = nil
 local mcm = nil
@@ -50,7 +50,7 @@ local function is_auto_spawn(companion_id)
     return cfg[companion_id .. "_auto_spawn"] ~= false
 end
 
--- ==================== COMPANION LOOKUP ====================
+-- COMPANION LOOKUP
 
 --[[
     Find a companion's server entity by companion ID.
@@ -101,7 +101,7 @@ function companion_exists(companion_id)
     return find_companion(companion_id) ~= nil
 end
 
--- ==================== PERMADEATH ====================
+-- PERMADEATH
 
 --[[
     Check if companion is permanently dead.
@@ -141,7 +141,7 @@ function reset_death(companion_id)
     log_info("Reset death status for %s", companion_id)
 end
 
--- ==================== SPAWN ====================
+-- SPAWN
 
 --[[
     Spawn companion at a specific position.
@@ -235,7 +235,7 @@ function spawn_at_player(companion_id)
         db.actor:game_vertex_id())
 end
 
--- ==================== TELEPORT ====================
+-- TELEPORT
 
 --[[
     Teleport companion to player's position.
@@ -340,7 +340,7 @@ function teleport_to_companion(companion_id)
     return true
 end
 
--- ==================== AUTO-SPAWN ====================
+-- AUTO-SPAWN
 
 local spawned_this_session = {}
 
@@ -392,7 +392,7 @@ function auto_spawn_all()
     end
 end
 
--- ==================== DEATH TRACKING ====================
+-- DEATH TRACKING
 
 local function _notify_companion_death(companion)
     if not db.actor then return end
@@ -415,7 +415,7 @@ function on_npc_death(npc, killer)
     end
 end
 
--- ==================== CALLBACKS ====================
+-- CALLBACKS
 
 function actor_on_first_update()
     CreateTimeEvent("ac_init", "auto_spawn", data.TIMING.spawn_delay_sec, function()
@@ -424,7 +424,7 @@ function actor_on_first_update()
     end)
 end
 
--- ==================== INITIALIZATION ====================
+-- INITIALIZATION
 
 local function _on_option_change()
     if log then

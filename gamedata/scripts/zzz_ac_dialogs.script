@@ -1,14 +1,14 @@
 --- zzz_ac_dialogs: Dialog preconditions and actions for companion recruitment
 
--- ==================== IMPORTS ====================
+-- IMPORTS
 
 local data = zzz_ac_data
 
--- ==================== CACHED GLOBALS ====================
+-- CACHED GLOBALS
 
 local db, pairs, string, character_community = db, pairs, string, character_community
 
--- ==================== HELPER: GET COMPANION BY NPC ====================
+-- HELPER: GET COMPANION BY NPC
 
 --[[
     Find which companion this NPC is by section.
@@ -25,7 +25,7 @@ local function get_companion_by_npc(npc)
     return nil, nil
 end
 
--- ==================== DATA-DRIVEN RECRUITMENT ====================
+-- DATA-DRIVEN RECRUITMENT
 
 --[[
     Check if player meets goodwill requirement for a faction.
@@ -65,7 +65,7 @@ local function can_afford(cost)
     return db.actor:money() >= cost
 end
 
--- ==================== GENERIC PRECONDITIONS ====================
+-- GENERIC PRECONDITIONS
 
 --[[
     Precondition: Can recruit this companion (meets requirements).
@@ -105,7 +105,7 @@ function is_companion(_actor, npc)
     return npc:has_info("npcx_is_companion")
 end
 
--- ==================== GENERIC ACTIONS ====================
+-- GENERIC ACTIONS
 
 --[[
     Action: Recruit companion (handles money transfer if needed).

@@ -1,14 +1,14 @@
 --- zzz_ac_mcm: MCM configuration - per-companion toggles and teleport buttons
 
--- ==================== IMPORTS ====================
+-- IMPORTS
 
 local data = zzz_ac_data
 
--- ==================== CACHED GLOBALS ====================
+-- CACHED GLOBALS
 
 local pairs, RegisterScriptCallback = pairs, RegisterScriptCallback
 
--- ==================== DEFAULTS ====================
+-- DEFAULTS
 
 defaults = {
     -- Global
@@ -23,7 +23,7 @@ for companion_id, _ in pairs(data.COMPANIONS) do
     _prefix_to_companion[companion_id .. "_"] = companion_id
 end
 
--- ==================== CONFIG ====================
+-- CONFIG
 
 local path_builder = function(key)
     if key == "debug_log" then
@@ -39,7 +39,7 @@ local path_builder = function(key)
 end
 cfg, get_config, load_config = xmcm.create_config("ac", defaults, path_builder)
 
--- ==================== BUTTON HANDLERS ====================
+-- BUTTON HANDLERS
 
 --[[
     Generic teleport button handler.
@@ -75,11 +75,11 @@ function btn_reset_death(companion_id)
     end
 end
 
--- ==================== MCM DEFINITION ====================
+-- MCM DEFINITION
 
 function on_mcm_load()
     local gr = {
-        -- ============ GENERAL TAB ============
+        -- GENERAL TAB
         {
             id = "general",
             sh = true,
@@ -98,7 +98,7 @@ function on_mcm_load()
         },
     }
 
-    -- ============ PER-COMPANION TABS ============
+    -- PER-COMPANION TABS
     for companion_id, companion in pairs(data.COMPANIONS) do
         local tab = {
             id = companion_id,
