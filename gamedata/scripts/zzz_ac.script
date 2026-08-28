@@ -290,7 +290,7 @@ function teleport_to_player(companion_id)
 end
 
 --- Teleport player TO companion's position.
---- @safety nil guard on se_obj, xlevel.get_level_id handles game_graph internally
+--- @safety SAFE - nil guard on se_obj, xlevel.get_level_id handles game_graph internally
 function teleport_to_companion(companion_id)
     if not db.actor then
         log_warn("Cannot teleport - not in game")
