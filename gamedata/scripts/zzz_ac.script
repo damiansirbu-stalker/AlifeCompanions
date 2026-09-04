@@ -13,7 +13,7 @@ local RegisterScriptCallback = RegisterScriptCallback
 local INVALID_LEVEL_VERTEX_ID = xconst.INVALID_LEVEL_VERTEX_ID
 
 -- xlibs utilities
-local format = xstring.interpolate
+local format = xstring.format_template
 
 -- LOGGING
 
