@@ -362,33 +362,33 @@ function auto_spawn_all()
     for companion_id, companion in pairs(data.COMPANIONS) do
         if spawned_this_session[companion_id] then
             log_debug("Already attempted spawn for %s this session", companion_id)
-            goto next_companion
+            goto continue
         end
         if not is_enabled(companion_id) then
             log_debug("%s is disabled in MCM", companion_id)
             spawned_this_session[companion_id] = true
-            goto next_companion
+            goto continue
         end
         if not is_auto_spawn(companion_id) then
             log_debug("Auto-spawn disabled for %s", companion_id)
             spawned_this_session[companion_id] = true
-            goto next_companion
+            goto continue
         end
         if is_dead(companion_id) then
             log_debug("%s is permanently dead", companion_id)
             spawned_this_session[companion_id] = true
-            goto next_companion
+            goto continue
         end
         if companion_exists(companion_id) then
             log_debug("%s already exists", companion_id)
             spawned_this_session[companion_id] = true
-            goto next_companion
+            goto continue
         end
 
         _try_spawn_delayed(companion_id, data.TIMING.spawn_delay_sec + delay)
         delay = delay + data.TIMING.spawn_stagger_sec
 
-        ::next_companion::
+        ::continue::
     end
 end
 
