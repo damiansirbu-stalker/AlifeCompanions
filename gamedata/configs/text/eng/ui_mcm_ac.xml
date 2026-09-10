@@ -33,10 +33,10 @@
 		<text>Debug Options</text>
 	</string>
 
-	<string id="ui_mcm_ac_general_debug_log">
+	<string id="ui_mcm_general_debug_log">
 		<text>Enable Debug Logging</text>
 	</string>
-	<string id="ui_mcm_ac_general_debug_log_desc">
+	<string id="ui_mcm_general_debug_log_desc">
 		<text>Write detailed logs to appdata/logs/sc.log for troubleshooting.</text>
 	</string>
 

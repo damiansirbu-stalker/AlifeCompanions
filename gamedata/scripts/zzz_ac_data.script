@@ -52,8 +52,7 @@ TIMING = {
     spawn_stagger_sec = 1,
 }
 
--- MESSAGES
--- Uses xstring.format_template syntax: {key} placeholders
+-- MESSAGES: xstring.format_template {key} placeholders.
 
 MESSAGES = {
     teleported_to_player = "{name} teleported to your location.",

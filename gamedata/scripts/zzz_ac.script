@@ -1,10 +1,6 @@
 --- zzz_ac: AlifeCompanions core - spawn, teleport, permadeath, discovery
 
--- IMPORTS
-
 local data = zzz_ac_data
-
--- CACHED GLOBALS
 
 local pairs, alife, level, db = pairs, alife, level, db
 local get_story_se_object, se_load_var, se_save_var = get_story_se_object, se_load_var, se_save_var
@@ -12,21 +8,18 @@ local TeleportObject, ChangeLevel = TeleportObject, ChangeLevel
 local RegisterScriptCallback = RegisterScriptCallback
 local INVALID_LEVEL_VERTEX_ID = xconst.INVALID_LEVEL_VERTEX_ID
 
--- xlibs utilities
 local format = xstring.format_template
 
--- LOGGING
-
 local log = xlog.get_logger("SC.CORE", { outfile = "standalone_companions.log" })
+
+local cfg = nil
+local mcm = nil
+local spawned_this_session = {}
+
 local function log_info(msg, ...)  if log then log.info(msg, ...)  end end
 local function log_debug(msg, ...) if log then log.debug(msg, ...) end end
 local function log_warn(msg, ...)  if log then log.warn(msg, ...)  end end
 local function log_error(msg, ...) if log then log.error(msg, ...) end end
-
--- CONFIGURATION
-
-local cfg = nil
-local mcm = nil
 
 local function init_config()
     mcm = zzz_ac_mcm
@@ -35,7 +28,6 @@ local function init_config()
             get = function(key) return mcm.get_config(key) end
         }
     else
-        -- Fallback to defaults
         cfg = {
             get = function(key) return data.MCM_DEFAULTS[key] end
         }
@@ -50,15 +42,28 @@ local function is_auto_spawn(companion_id)
     return cfg[companion_id .. "_auto_spawn"] ~= false
 end
 
--- COMPANION LOOKUP
+local function _try_spawn_delayed(id, delay_time)
+    CreateTimeEvent("ac_spawn", id, delay_time, function()
+        if not is_spawned(id) and not is_dead(id) then spawn_at_default(id) end
+        spawned_this_session[id] = true
+        return true
+    end)
+end
 
---[[
-    Find a companion's server entity by companion ID.
-    Uses get_story_se_object first (fast), falls back to section scan.
+local function _notify_companion_death(companion)
+    local actor = db.actor
+    if not actor then return end
+    local msg = companion.display_name .. " has fallen. She won't be coming back."
+    news_manager.send_tip(actor, msg, nil, nil, 15000)
+end
 
-    @param companion_id (string) - "anna", "mila", etc.
-    @return se_obj or nil
-]]
+local function _on_option_change()
+    if log then
+        log.set_level(cfg.debug_log and "DEBUG" or "INFO")
+    end
+end
+
+--- Find a companion's server entity by id (story object first, then a section scan).
 function find_companion(companion_id)
     local companion = data.COMPANIONS[companion_id]
     if not companion then
@@ -68,14 +73,12 @@ function find_companion(companion_id)
 
     local section = companion.section
 
-    -- Try story object first (fast path)
     local se_obj = get_story_se_object(section)
     if se_obj then
         log_debug("Found %s via story_id: %s", companion_id, se_obj.id)
         return se_obj
     end
 
-    -- Fallback: scan by section (slower but reliable)
     local sim = alife()
     if not sim then return nil end
     local found = nil
@@ -94,18 +97,12 @@ function find_companion(companion_id)
     return nil
 end
 
---[[
-    Check if companion exists in world.
-]]
-function companion_exists(companion_id)
+--- True when the companion exists in the world.
+function is_spawned(companion_id)
     return find_companion(companion_id) ~= nil
 end
 
--- PERMADEATH
-
---[[
-    Check if companion is permanently dead.
-]]
+--- True when the companion is permanently dead.
 function is_dead(companion_id)
     local se_actor = alife():actor()
     if not se_actor then return false end
@@ -115,10 +112,8 @@ function is_dead(companion_id)
     return val == true
 end
 
---[[
-    Mark companion as permanently dead.
-]]
-function mark_dead(companion_id)
+--- Persist the companion as permanently dead.
+function set_dead(companion_id)
     local se_actor = alife():actor()
     if not se_actor then return end
 
@@ -129,9 +124,7 @@ function mark_dead(companion_id)
     log_info("%s has died permanently", companion and companion.name or companion_id)
 end
 
---[[
-    Reset companion death status (for debugging).
-]]
+--- Clear the companion's permadeath flag (debug).
 function reset_death(companion_id)
     local se_actor = alife():actor()
     if not se_actor then return end
@@ -141,13 +134,7 @@ function reset_death(companion_id)
     log_info("Reset death status for %s", companion_id)
 end
 
--- SPAWN
-
---[[
-    Spawn companion at a specific position.
-
-    @return se_obj or nil
-]]
+--- Spawn the companion at a specific position, or nil on failure.
 function spawn_at(companion_id, pos, lvid, gvid)
     local companion = data.COMPANIONS[companion_id]
     if not companion then
@@ -179,9 +166,7 @@ function spawn_at(companion_id, pos, lvid, gvid)
     return se_obj
 end
 
---[[
-    Spawn companion at their default location (smart terrain).
-]]
+--- Spawn the companion at their default smart terrain, falling back to the player's level.
 function spawn_at_default(companion_id)
     local companion = data.COMPANIONS[companion_id]
     if not companion then return nil end
@@ -191,19 +176,17 @@ function spawn_at_default(companion_id)
         return nil
     end
 
-    if companion_exists(companion_id) then
+    if is_spawned(companion_id) then
         log_debug("%s already exists, skipping spawn", companion_id)
         return nil
     end
 
-    -- Try to find smart terrain
     local smart = SIMBOARD and SIMBOARD.smarts_by_names[companion.default_smart]
     if smart and xlevel.is_valid_lvid(smart) then
         log_debug("Spawning %s at smart terrain: %s", companion_id, companion.default_smart)
         return spawn_at(companion_id, smart.position, smart.m_level_vertex_id, smart.m_game_vertex_id)
     end
 
-    -- Fallback: spawn at player if on same level
     if level and level.name() == companion.default_level and db.actor then
         local pos = db.actor:position()
         pos.x = pos.x + 2
@@ -216,9 +199,7 @@ function spawn_at_default(companion_id)
     return nil
 end
 
---[[
-    Spawn companion at player's current position.
-]]
+--- Spawn the companion at the player's current position.
 function spawn_at_player(companion_id)
     if not db.actor then
         log_warn("Cannot spawn at player - not in game")
@@ -235,12 +216,7 @@ function spawn_at_player(companion_id)
         db.actor:game_vertex_id())
 end
 
--- TELEPORT
-
---[[
-    Teleport companion to player's position.
-    If companion doesn't exist, spawns them.
-]]
+--- Teleport the companion to the player, spawning them when absent.
 function teleport_to_player(companion_id)
     if not db.actor then
         log_warn("Cannot teleport - not in game")
@@ -253,7 +229,6 @@ function teleport_to_player(companion_id)
         return false
     end
 
-    -- Check permadeath
     if is_dead(companion_id) then
         local msg = format(data.MESSAGES.companion_dead, {name = companion.display_name})
         news_manager.send_tip(db.actor, msg, nil, nil, 10000)
@@ -263,7 +238,6 @@ function teleport_to_player(companion_id)
     local se_obj = find_companion(companion_id)
 
     if se_obj then
-        -- Teleport existing companion
         local pos = db.actor:position()
         pos.x = pos.x + 1
         pos.z = pos.z + 1
@@ -276,7 +250,6 @@ function teleport_to_player(companion_id)
         return true
     end
 
-    -- Spawn at player
     local new_obj = spawn_at_player(companion_id)
     if not new_obj then
         local msg = format(data.MESSAGES.spawn_failed, {name = companion.display_name})
@@ -289,7 +262,7 @@ function teleport_to_player(companion_id)
     return true
 end
 
---- Teleport player TO companion's position.
+--- Teleport the player to the companion's position.
 --- @safety SAFE - nil guard on se_obj, xlevel.get_level_id handles game_graph internally
 function teleport_to_companion(companion_id)
     if not db.actor then
@@ -322,15 +295,12 @@ function teleport_to_companion(companion_id)
     local current_level = level.name()
 
     if companion_level ~= current_level then
-        -- Different level - need level change
         local msg = companion.display_name .. " is on " .. companion_level .. ". Teleporting..."
         news_manager.send_tip(db.actor, msg, nil, nil, 5000)
 
-        -- Use ChangeLevel for cross-level teleport
         ChangeLevel(pos, lvid, gvid, vector():set(0, 0, 0))
         log_info("Teleported player to %s on level %s", companion_id, companion_level)
     else
-        -- Same level - direct teleport
         db.actor:set_actor_position(pos)
         local msg = format(data.MESSAGES.teleported_to_companion, {name = companion.display_name})
         news_manager.send_tip(db.actor, msg, nil, nil, 5000)
@@ -340,23 +310,8 @@ function teleport_to_companion(companion_id)
     return true
 end
 
--- AUTO-SPAWN
-
-local spawned_this_session = {}
-
---[[
-    Try to auto-spawn all enabled companions.
-    Called on first update after game load.
-]]
-local function _try_spawn_delayed(id, delay_time)
-    CreateTimeEvent("ac_spawn", id, delay_time, function()
-        if not companion_exists(id) and not is_dead(id) then spawn_at_default(id) end
-        spawned_this_session[id] = true
-        return true
-    end)
-end
-
-function auto_spawn_all()
+--- Auto-spawn every enabled companion not already present, staggered over time.
+function spawn_companions()
     local delay = 0
 
     for companion_id, companion in pairs(data.COMPANIONS) do
@@ -379,7 +334,7 @@ function auto_spawn_all()
             spawned_this_session[companion_id] = true
             goto continue
         end
-        if companion_exists(companion_id) then
+        if is_spawned(companion_id) then
             log_debug("%s already exists", companion_id)
             spawned_this_session[companion_id] = true
             goto continue
@@ -392,44 +347,25 @@ function auto_spawn_all()
     end
 end
 
--- DEATH TRACKING
-
-local function _notify_companion_death(companion)
-    if not db.actor then return end
-    local msg = companion.display_name .. " has fallen. She won't be coming back."
-    news_manager.send_tip(db.actor, msg, nil, nil, 15000)
-end
-
 function on_npc_death(npc, killer)
     if not npc then return end
 
     local section = npc:section()
-
+    local matched_id, matched = nil, nil
     for companion_id, companion in pairs(data.COMPANIONS) do
-        if section == companion.section then
-            log_info("%s (%s) has died!", companion.name, section)
-            mark_dead(companion_id)
-            _notify_companion_death(companion)
-            return
-        end
+        if section == companion.section then matched_id, matched = companion_id, companion; break end
     end
+    if not matched then return end
+    log_info("%s (%s) has died!", matched.name, section)
+    set_dead(matched_id)
+    _notify_companion_death(matched)
 end
-
--- CALLBACKS
 
 function actor_on_first_update()
     CreateTimeEvent("ac_init", "auto_spawn", data.TIMING.spawn_delay_sec, function()
-        auto_spawn_all()
+        spawn_companions()
         return true
     end)
-end
-
--- INITIALIZATION
-
-local function _on_option_change()
-    if log then
-        log.set_level(cfg.debug_log and "DEBUG" or "INFO")
-    end
 end
 
 function on_game_start()

@@ -1,19 +1,13 @@
 --- zzz_ac_dialogs: Dialog preconditions and actions for companion recruitment
 
--- IMPORTS
-
 local data = zzz_ac_data
-
--- CACHED GLOBALS
 
 local db, pairs, string, character_community = db, pairs, string, character_community
 
--- HELPER: GET COMPANION BY NPC
+local RECRUIT_GOODWILL = "goodwill"
+local RECRUIT_MONEY = "money"
 
---[[
-    Find which companion this NPC is by section.
-    @return companion_id, companion_data or nil, nil
-]]
+--- Find which companion this NPC is by section (companion_id, data or nil).
 local function get_companion_by_npc(npc)
     if not npc then return nil, nil end
     local section = npc:section()
@@ -25,15 +19,8 @@ local function get_companion_by_npc(npc)
     return nil, nil
 end
 
--- DATA-DRIVEN RECRUITMENT
-
---[[
-    Check if player meets goodwill requirement for a faction.
-    @param faction (string) - faction id (e.g., "dolg", "freedom", "killer")
-    @param threshold (number) - minimum goodwill required
-]]
+--- True when the player meets the faction goodwill requirement (own faction always passes).
 local function has_faction_goodwill(faction, threshold)
-    -- Check if player IS that faction (always passes)
     local actor_comm = character_community(db.actor)
     local faction_actor_map = {
         dolg = "actor_dolg",
@@ -52,69 +39,51 @@ local function has_faction_goodwill(faction, threshold)
         return true
     end
 
-    -- Check goodwill with faction
     local goodwill = relation_registry.community_goodwill(faction, AC_ID) or 0
     return goodwill >= threshold
 end
 
---[[
-    Check if player can afford to hire (money-based recruitment).
-    @param cost (number) - rubles required
-]]
+--- True when the player can afford the hire cost.
 local function can_afford(cost)
     return db.actor:money() >= cost
 end
 
--- GENERIC PRECONDITIONS
-
---[[
-    Precondition: Can recruit this companion (meets requirements).
-    Works for both goodwill and money-based recruitment.
-]]
+--- Dialog precondition: the companion meets its goodwill or money requirement.
 function can_recruit(_actor, npc)
     if npc:has_info("npcx_is_companion") then
         return false
     end
 
-    local companion_id, companion = get_companion_by_npc(npc)
+    local _, companion = get_companion_by_npc(npc)
     if not companion then return false end
 
-    if companion.recruit_type == "goodwill" then
+    if companion.recruit_type == RECRUIT_GOODWILL then
         return has_faction_goodwill(companion.recruit_faction, companion.recruit_goodwill)
-    elseif companion.recruit_type == "money" then
+    elseif companion.recruit_type == RECRUIT_MONEY then
         return can_afford(companion.recruit_cost)
     end
 
     return true
 end
 
---[[
-    Precondition: Cannot recruit (show rejection dialog).
-]]
-function cannot_recruit(actor, npc)
+--- Dialog precondition: recruitable NPC whose requirement is not met (the rejection branch).
+function is_recruit_blocked(actor, npc)
     if npc:has_info("npcx_is_companion") then
         return false
     end
     return not can_recruit(actor, npc)
 end
 
---[[
-    Precondition: Is currently a companion.
-]]
+--- Dialog precondition: the NPC is already a companion.
 function is_companion(_actor, npc)
     return npc:has_info("npcx_is_companion")
 end
 
--- GENERIC ACTIONS
+--- Dialog action: recruit the companion, transferring the hire cost when money-based.
+function add_companion(actor, npc)
+    local _, companion = get_companion_by_npc(npc)
 
---[[
-    Action: Recruit companion (handles money transfer if needed).
-]]
-function do_recruit(actor, npc)
-    local companion_id, companion = get_companion_by_npc(npc)
-
-    -- Handle money-based recruitment
-    if companion and companion.recruit_type == "money" and companion.recruit_cost then
+    if companion and companion.recruit_type == RECRUIT_MONEY and companion.recruit_cost then
         local cost = companion.recruit_cost
         db.actor:give_money(-cost)
         npc:give_money(cost)
@@ -124,14 +93,10 @@ function do_recruit(actor, npc)
         news_manager.send_tip(db.actor, msg, nil, nil, 10000)
     end
 
-    -- Make companion
     dialogs_axr_companion.become_actor_companion(actor, npc)
 end
 
---[[
-    Action: Dismiss companion.
-]]
-function do_leave(actor, npc)
+--- Dialog action: dismiss the companion.
+function remove_companion(actor, npc)
     dialogs_axr_companion.remove_companions_from_squad(actor, npc)
 end
-
