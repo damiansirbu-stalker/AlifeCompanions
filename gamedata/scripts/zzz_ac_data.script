@@ -34,8 +34,6 @@ COMPANIONS = {
     },
 }
 
--- MCM DEFAULTS
-
 MCM_DEFAULTS = {
     -- Global
     debug_log = false,
@@ -45,15 +43,12 @@ MCM_DEFAULTS = {
     auto_spawn = true,
 }
 
--- TIMING
-
 TIMING = {
     spawn_delay_sec = 3,
     spawn_stagger_sec = 1,
 }
 
 -- MESSAGES: xstring.format_template {key} placeholders.
-
 MESSAGES = {
     teleported_to_player = "{name} teleported to your location.",
     spawned_at_player = "{name} has arrived at your location.",
@@ -65,7 +60,5 @@ MESSAGES = {
     death_notification = "{name} has fallen. She won't be coming back.",
     hired = "{name} has joined you. {cost} RU transferred.",
 }
-
--- PERMADEATH
 
 PERMADEATH_SAVE_PREFIX = "ac_dead_"
