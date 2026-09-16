@@ -48,7 +48,7 @@ MCM (per companion):
 
 Requirements:
 Anomaly 1.5.3
-Modded exes: themrdemonized 2025.9.10 or newer, or AOEngine v0.55 or newer. The full feature set needs the latest demonized build; a feature that needs a newer one stays inactive on older exes.
+Modded exes: themrdemonized or AOEngine v0.55 or newer. The full feature set needs the latest demonized build; a feature that needs a newer one stays inactive on older exes.
 xlibs (https://www.moddb.com/mods/stalker-anomaly/addons/xlibs-1001)
 MCM
 
@@ -67,14 +67,15 @@ All settings in MCM under AlifeCompanions. Per-companion tabs for individual con
 Compatibility:
 Coexists with other companion mods; it uses the standard Anomaly companion system (axr_companions).
 
-Performance:
-Performance comes first, ahead of any feature. When a feature cannot fit the budget it is reworked, replaced, or removed with an X-Ray engine modification rather than allowed to slow the game. Measured on the engine built from the latest source with no multithreading and no optimizations, so the timings are worst-case; the optimized multithreaded build you run is always faster.
-
-Development:
-Written against X-Ray Monolith engine source, Demonized exes source code, and Anomaly 1.5.3 unpacked gamedata.
-Code patterns and engine usage validated against established work by reputable Anomaly modders (Demonized, Vintar0, RavenAscendant, xcvb).
-The code is validated in real time by a multi-stage pipeline: luacheck, selene, tree-sitter AST analysis, contract rules, cross-file dependency resolution, cyclomatic complexity analysis, crash and vulnerability pattern detection, lua54 integration testing with X-Ray engine stubs, gitleaks secret scanning.
-Full report in doc/test-report.log.
+Performance and Infrastructure:
+Performance comes first, ahead of any feature. When a feature cannot fit the budget it is reworked, replaced, or removed with an X-Ray engine modification rather than allowed to slow the game.
+Built from the X-Ray engine source by reverse engineering, with targeted engine changes of my own for performance, precision, and accuracy.
+Heavy work spreads across frames, paced by rate limiters and staggered, deferred queues, with the math to keep cost bounded at any entity count.
+A layered validator runs on every change, locally and in CI, and blocks the build on any crash, unsafe engine call, performance regression, style break, failed smoke load, or leaked secret.
+Profiled with JitProfiler, an engine-native, scientific profiler.
+Timings are worst-case, from a build with no multithreading or optimizations, so yours runs faster.
+Project Health: https://damiansirbu-stalker.github.io/AlifeCompanions/
+[JitProfiler: AlifeCompanions under CPU and allocation capture]
 
 Credits:
 Altogolik - support, ideas, source materials
