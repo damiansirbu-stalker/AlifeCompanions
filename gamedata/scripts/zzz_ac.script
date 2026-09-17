@@ -375,7 +375,7 @@ function on_game_start()
         log.set_level(cfg.debug_log and "DEBUG" or "INFO")
     end
 
-    log.info("AlifeCompanions v%s (xlibs v%s)", _ac_deps.get_version(), xlibs.get_version())
+    log.info("AlifeCompanions v%s (xlibs v%s)", _ac_init.get_version(), xlibs.get_version())
 
     RegisterScriptCallback("actor_on_first_update", actor_on_first_update)
     RegisterScriptCallback("npc_on_death_callback", on_npc_death)
