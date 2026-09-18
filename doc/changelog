@@ -1,10 +1,10 @@
-next
+1.0.4-snapshot
   Added: timed event scheduling works correctly with major modpacks (globals resolve at call time for demonized_time_events compatibility)
   Added: version displayed at startup (mod + xlibs)
   Changed: MCM visual refresh
   Removed: dialog wrapper shims (Anna/Mila XML calls recruit functions directly)
   Compatibility:
-    Requires themrdemonized modded exes 2025.9.10+ or AOEngine v0.55+.
+    Requires themrdemonized modded exes 20250908+ or AOEngine v0.55+.
 
   Performance and Infrastructure
     - Rebuilt the validator into layered rules for crashes, unsafe engine usage, performance, best practices, smoke load, and secret leaks.
