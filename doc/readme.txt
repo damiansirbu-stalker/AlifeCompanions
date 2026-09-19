@@ -91,3 +91,5 @@ Usage and License:
 Diagnostics and reporting:
 General > Debug log: turn on, reproduce, then off. Writes the debug log.
 Report at https://github.com/damiansirbu-stalker/AlifeCompanions/issues/new/choose or the EFP, Anomaly, and Zona Discord. Include repro steps, engine build, modlist, load order, xray.log, and the debug log.
+
+Tags: alife, companions, permadeath, no-quest-gates, recruitment, engine-native, performance, save-safe
