@@ -1,1 +1,1 @@
-Custom companions for STALKER Anomaly, no quest gates. Talk and recruit: each companion has her own location, terms, and price, through the standard Anomaly companion system. Permadeath keeps it real, dead stays dead. Engine-native, performant, save-safe.
+Custom companions for STALKER Anomaly, no quest gates. Talk and recruit: each companion has her own location, terms, and price, through the standard Anomaly companion system. Permadeath, dead stays dead. Engine-native, performant, save-safe.
