@@ -1,4 +1,3 @@
-AlifeCompanions: Custom companions for STALKER Anomaly, by Damian
 Version: 1.0.4-snapshot (xlibs 1.5.1, demonized 20250908)
 Changelog: https://github.com/damiansirbu-stalker/AlifeCompanions/blob/main/doc/changelog
 
