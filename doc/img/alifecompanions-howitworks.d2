@@ -1,0 +1,49 @@
+direction: down
+
+style.fill: "#1f2421"
+
+**.style.fill: "#262c27"
+**.style.stroke: "#ece7d8"
+**.style.font-color: "#ece7d8"
+**.style.stroke-width: 2
+
+title: "AlifeCompanions - talk, recruit, permadeath" {
+  near: top-center
+  style: { stroke-width: 0; fill: "#1f2421"; font-color: "#ece7d8"; font-size: 28 }
+}
+
+companions: "Companions" {
+  grid-columns: 1
+  grid-gap: 16
+  anna: "Anna (Duty) - Rostok Bar\n2000+ Duty goodwill or Duty membership"
+  mila: "Mila (Mercenary) - Dead City\n100,000 rubles"
+}
+
+recruit: "Recruit by dialog" {
+  style.stroke: "#c9d8b6"
+  grid-columns: 1
+  grid-gap: 14
+  g: "goodwill or money check in the dialog"
+  j: "join through the standard axr_companions system"
+}
+
+death: "Permadeath" {
+  style.stroke: "#c9d8b6"
+  grid-columns: 1
+  grid-gap: 14
+  d: "killed once, stays dead"
+  r: "MCM debug reset restores"
+}
+
+mcm: "MCM, per companion" {
+  grid-columns: 2
+  grid-gap: 14
+  e: "enable / disable"
+  s: "auto-spawn on load"
+  t: "teleport to or from you"
+  x: "reset death status"
+}
+
+companions -> recruit: "meet, talk" { style: { stroke: "#c9d8b6"; font-color: "#c9d8b6" } }
+recruit -> death: "recruited, full controls" { style: { stroke: "#c9d8b6"; font-color: "#c9d8b6" } }
+mcm -> companions: "control" { style: { stroke: "#c9d8b6"; font-color: "#c9d8b6" } }
