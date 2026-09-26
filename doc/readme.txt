@@ -1,5 +1,5 @@
 Version: 1.0.4-snapshot (xlibs 1.5.1, demonized 20250908)
-Changelog: https://github.com/damiansirbu-stalker/AlifeCompanions/blob/main/doc/changelog
+Changelog: https://github.com/damiansirbu-stalker/AlifeCompanions/blob/main/doc/changelog | Health: https://damiansirbu-stalker.github.io/AlifeCompanions/health/ | JitProfiler: https://damiansirbu-stalker.github.io/AlifeCompanions/jitprofiler/ | Bugs: https://github.com/damiansirbu-stalker/AlifeCompanions/issues | Russian / На русском: https://github.com/damiansirbu-stalker/AlifeCompanions/blob/main/doc/readme_ru.txt
 
 My work:
 GitHub: https://github.com/orgs/damiansirbu-stalker/repositories
@@ -44,20 +44,12 @@ Modded exes: themrdemonized 20250908 or newer, or AOEngine v0.55 or newer. The f
 xlibs (https://www.moddb.com/mods/stalker-anomaly/addons/xlibs-1001)
 MCM
 
-Install (MO2):
-1. Install xlibs
-2. Install AlifeCompanions
-3. Load order does not matter
-4. Configure via MCM
-
-Uninstall (MO2):
-Disable or remove in MO2.
-
 Configuration:
 All settings in MCM under AlifeCompanions. Per-companion tabs for individual control. Companions are enabled with auto-spawn by default.
 
 Compatibility:
-Coexists with other companion mods; it uses the standard Anomaly companion system (axr_companions).
+Depends only on xlibs. Install and uninstall mid-save work. Tested: Anomaly 1.5.3, GAMMA, EFP, Zona, Forgotten Zone.
+It coexists with everything else.
 
 How It's Built:
 
@@ -75,8 +67,7 @@ The mod avoids writing engine values, holding its own state in parallel. Any val
 The family runs on one rulebook through xlibs. Every rule, policy, and check is one shared implementation, the same protection, distances, faction logic, and combat reads in every mod.
 It depends on no other mod, not even my own. The only shared layers are X-Ray and xlibs.
 
-[Screenshot: AlifeCompanions under JitProfiler, a live CPU and allocation capture]
-Project Health: https://damiansirbu-stalker.github.io/AlifeCompanions/
+That pipeline runs on every commit and publishes what it finds. The header links a live health page and a JitProfiler capture of the mod's real CPU and allocation cost.
 
 Credits:
 Altogolik - support, ideas, source materials
