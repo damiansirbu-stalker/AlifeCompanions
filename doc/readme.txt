@@ -13,13 +13,14 @@ Nexus: https://www.nexusmods.com/profile/damiansirbu/mods
 My contributions:
 X-Ray Monolith: https://github.com/themrdemonized/xray-monolith
 
-No quest requirements. Just talk and recruit. Each companion has their own personality, location, and recruitment method. Permadeath keeps it real - if they die, they stay dead.
+No quest requirements. Talk and recruit. Each companion has their own personality, location, and recruitment method. Permadeath is real. If they die, they stay dead.
 
 Anna is Duty. Find her at Rostok Bar. Earn 2000+ Duty goodwill or join Duty, then talk to her. She joins as a standard companion with full Anomaly companion controls.
 
 Mila is a mercenary. Find her at Dead City. Pay 100,000 rubles. Business is business.
 
-Both companions auto-spawn at their default locations on game load. MCM gives full control: enable/disable each companion, toggle auto-spawn, teleport them to you or yourself to them. Debug options let you reset permadeath if needed.
+Both companions auto-spawn at their default locations on game load.
+MCM gives full control over spawn, teleport, and permadeath reset.
 
 Features:
 
@@ -36,11 +37,11 @@ Permadeath:
   Reset via MCM debug option
 
 MCM (per companion):
-  Enable/Disable companion
-  Auto-spawn at default location on game load
-  Teleport companion to player
-  Teleport player to companion (cross-level supported)
-  Reset death status (debug)
+  Enable or disable the companion
+  Toggle auto-spawn at the default location on game load
+  Teleport the companion to the player
+  Teleport the player to the companion (cross-level supported)
+  Reset the death status (debug)
 
 Requirements:
 Anomaly 1.5.3
@@ -74,7 +75,7 @@ It depends on no other mod, not even the author's own. The only shared layers ar
 That pipeline runs on every commit and publishes what it finds. The header links a live health page and a JitProfiler capture of the mod's real CPU and allocation cost.
 
 Credits:
-Altogolik - support, ideas, source materials
+Altogolik provided support, ideas, and source materials.
 
 Usage and License:
   Modpacks: allowed and encouraged. Keep the readme and license files.
