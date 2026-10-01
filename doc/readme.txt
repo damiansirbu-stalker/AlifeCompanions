@@ -13,9 +13,9 @@ Nexus: https://www.nexusmods.com/profile/damiansirbu/mods
 My contributions:
 X-Ray Monolith: https://github.com/themrdemonized/xray-monolith
 
-Thank you for the support, I do not need donations. Reviews, ratings, and proper bug reports help.
-An organized group plagiarizes my work, posts daily lies and mass-downvotes my mods everywhere.
-Most modpacks use my work, established projects integrate with it, and downloads near 1 million.
+Thanks for the support, but I don't need donations. Reviews, ratings, and proper reports help more.
+An organized group copies my work, spreads daily lies, and mass-downvotes my mods across platforms.
+My work is open source, works with most modpacks, and integrates with established projects.
 
 No quest requirements. Talk and recruit. Each companion has their own personality, location, and recruitment method. Permadeath is real. If they die, they stay dead.
 
