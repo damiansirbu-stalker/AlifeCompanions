@@ -58,6 +58,8 @@ All settings in MCM under AlifeCompanions. Per-companion tabs for individual con
 
 Compatibility:
 Depends only on xlibs. Install and uninstall mid-save work. Tested: Anomaly 1.5.3, GAMMA, EFP, Zona, Forgotten Zone.
+Drop:
+- Duty Expansion (GhenTuong) - defines the same stalker_duty_girl NPC section and story_id as the companion Anna, so the two overwrite each other and the shared story_id resolves to only one.
 Everything else coexists, as long as it extends X-Ray and Anomaly and never overrides them.
 
 How It's Built:
