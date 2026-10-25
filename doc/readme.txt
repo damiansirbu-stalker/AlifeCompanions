@@ -23,11 +23,14 @@ Engines:
   X-Ray Monolith: https://github.com/themrdemonized/xray-monolith/pulls?q=is%3Apr+author%3Adamiansirbu+is%3Amerged
   OpenXRay: https://github.com/OpenXRay/xray-16/pulls?q=is%3Apr+author%3Adamiansirbu+is%3Amerged
   IX-Ray: https://github.com/ixray-team/ixray-1.6-stcop/commits/develop?author=damiansirbu
-Integrations:
-  Word of Mouth: https://github.com/joshcoppola/word_of_mouth
-  Warfare (erepb): https://www.moddb.com/mods/stalker-anomaly/addons/warfare-alife-overhaul-new
-  Stealth Overhaul: https://github.com/Alex-leon1594/Stealth_Overhaul_Reworked
+Dependents:
   COMPASS: https://github.com/Crimento/COMPASS
+  Nemesis Wave Spawn System: https://github.com/SirEndet/Nemesis-Wave-Spawn-System
+  Word of Mouth: https://github.com/joshcoppola/word_of_mouth
+Integrations:
+  Warfare (erepb): https://www.moddb.com/mods/stalker-anomaly/addons/warfare-alife-overhaul-new
+  Homestead: https://www.moddb.com/mods/stalker-anomaly/addons/homestead-stalker-settlement-builder
+  Stealth Overhaul: https://github.com/Alex-leon1594/Stealth_Overhaul_Reworked
 Collaborations:
   xAGNA: https://www.moddb.com/mods/stalker-anomaly/addons/xagna
 
@@ -83,7 +86,7 @@ Everything else coexists, as long as it extends X-Ray and Anomaly and never over
 How It's Built:
 
 The code and patterns are original, built on best practices from the best STALKER modders and hands-on reverse-engineering of X-Ray.
-The design stays engine-native and minimal, with event-native pub/sub over polling, work spread across frames through deferred queues and rate limiters, and per-level caches that replace world scans.
+The design stays engine-native and minimal, with event-native pub/sub not polling, work spread across frames via deferred queues and rate limiters, and per-level caches replacing world scans.
 The raycasting and range math are hand-written and load-tested live, following the engine's own standards and flags.
 Where scripting hits an engine limit, the fix is made in X-Ray itself, in the modded exes.
 Performance is the first invariant, so every flow stays under 2ms or the build rewrites or drops it, profiled continuously with JitProfiler and hand-tested on unoptimized, single-threaded exes.
