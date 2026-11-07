@@ -36,9 +36,9 @@ Integrations:
 Collaborations:
   xAGNA: https://www.moddb.com/mods/stalker-anomaly/addons/xagna
 
-Thanks for the support, but I don't need donations. Reviews, ratings, and proper reports help more.
-An organized group copies my work, spreads daily lies, and mass-downvotes my mods across platforms.
-My work is open source, present in most modpacks, and integrates with established projects.
+My work is free and open source, ships in most modpacks, and integrates with established projects.
+An organized group copies my work, defames, impersonates and review-bombs me across platforms.
+You can help with a review, a rating, a proper bug report, or a coffee on Ko-fi: https://ko-fi.com/damiansirbu
 
 No quest requirements. Talk and recruit. Each companion has their own personality, location, and recruitment method. Permadeath is real. If they die, they stay dead.
 
