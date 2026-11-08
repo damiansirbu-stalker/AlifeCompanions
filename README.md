@@ -3,7 +3,7 @@
 Companions with no quest requirements, recruited by talking to them.
 Each one has their own location, personality and terms, and permadeath applies, so a companion who dies stays dead.
 
-[Releases](https://github.com/damiansirbu-stalker/AlifeCompanions/releases) | [Bugs, suggestions](https://github.com/damiansirbu-stalker/AlifeCompanions/issues)
+[![Releases](https://img.shields.io/badge/Releases-24292f?logo=github&logoColor=white)](https://github.com/damiansirbu-stalker/AlifeCompanions/releases) [![Bugs, suggestions](https://img.shields.io/badge/Bugs%2C_suggestions-24292f?logo=github&logoColor=white)](https://github.com/damiansirbu-stalker/AlifeCompanions/issues) [![Ko-fi](https://img.shields.io/badge/Ko--fi-ff5e5b?logo=kofi&logoColor=white)](https://ko-fi.com/damiansirbu)
 
 [![ci](https://github.com/damiansirbu-stalker/AlifeCompanions/actions/workflows/ci.yml/badge.svg)](https://github.com/damiansirbu-stalker/AlifeCompanions/actions/workflows/ci.yml) [![Project Health](https://img.shields.io/badge/project_health-dashboard-00ced1)](https://damiansirbu-stalker.github.io/AlifeCompanions/)
 
