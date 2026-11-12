@@ -10,7 +10,7 @@ local INVALID_LEVEL_VERTEX_ID = xconst.INVALID_LEVEL_VERTEX_ID
 
 local format = xstring.format_template
 
-local log = xlog.get_logger("SC.CORE", { outfile = "standalone_companions.log" })
+local log = xlog.get_logger("AC.CORE", { outfile = "alifecompanions.log" })
 
 local cfg = nil
 local mcm = nil

@@ -78,10 +78,10 @@
 
 	<!-- MCM Menu -->
 	<string id="ui_mcm_menu_standalone_companions">
-		<text>Standalone Companions</text>
+		<text>AlifeCompanions</text>
 	</string>
 	<string id="ui_mcm_standalone_companions_title">
-		<text>Standalone Companions</text>
+		<text>AlifeCompanions</text>
 	</string>
 	<string id="ui_mcm_ac_anna_header">
 		<text>Anna (Duty)</text>

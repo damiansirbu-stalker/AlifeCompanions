@@ -4,7 +4,7 @@
 	<!-- ==================== MENU ENTRY ==================== -->
 
 	<string id="ui_mcm_menu_sc">
-		<text>Standalone Companions</text>
+		<text>AlifeCompanions</text>
 	</string>
 
 	<string id="ui_mcm_menu_general">
@@ -22,7 +22,7 @@
 	<!-- ==================== GENERAL TAB ==================== -->
 
 	<string id="ui_mcm_ac_title">
-		<text>Standalone Companions</text>
+		<text>AlifeCompanions</text>
 	</string>
 
 	<string id="ui_mcm_ac_general_desc">
