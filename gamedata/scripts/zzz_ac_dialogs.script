@@ -50,7 +50,7 @@ end
 
 --- Dialog precondition: the companion meets its goodwill or money requirement.
 function can_recruit(_actor, npc)
-    if npc:has_info("npcx_is_companion") then
+    if xcreature.is_companion(npc) then
         return false
     end
 
@@ -68,7 +68,7 @@ end
 
 --- Dialog precondition: recruitable NPC whose requirement is not met (the rejection branch).
 function is_recruit_blocked(actor, npc)
-    if npc:has_info("npcx_is_companion") then
+    if xcreature.is_companion(npc) then
         return false
     end
     return not can_recruit(actor, npc)
@@ -76,7 +76,7 @@ end
 
 --- Dialog precondition: the NPC is already a companion.
 function is_companion(_actor, npc)
-    return npc:has_info("npcx_is_companion")
+    return xcreature.is_companion(npc)
 end
 
 --- Dialog action: recruit the companion, transferring the hire cost when money-based.
