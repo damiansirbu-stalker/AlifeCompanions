@@ -3,11 +3,18 @@
 Companions with no quest requirements, recruited by talking to them.
 Each one has their own location, personality and terms, and permadeath applies, so a companion who dies stays dead.
 
-[![Releases](https://img.shields.io/badge/Releases-24292f?logo=github&logoColor=white)](https://github.com/damiansirbu-stalker/AlifeCompanions/releases) [![Bugs, suggestions](https://img.shields.io/badge/Bugs%2C_suggestions-24292f?logo=github&logoColor=white)](https://github.com/damiansirbu-stalker/AlifeCompanions/issues) [![Anomaly Discord](https://img.shields.io/badge/Anomaly_Discord-5865f2?logo=discord&logoColor=white)](https://discord.gg/c4RuJNs) [![Ko-fi](https://img.shields.io/badge/Ko--fi-ff5e5b?logo=kofi&logoColor=white)](https://ko-fi.com/damiansirbu)
+[![Releases](https://img.shields.io/badge/Releases-24292f?logo=github&logoColor=white)](https://github.com/damiansirbu-stalker/AlifeCompanions/releases)
+
+[![Bugs, suggestions](https://img.shields.io/badge/Bugs%2C_suggestions-24292f?logo=github&logoColor=white)](https://github.com/damiansirbu-stalker/AlifeCompanions/issues) [![Anomaly Discord](https://img.shields.io/badge/Anomaly_Discord-5865f2?logo=discord&logoColor=white)](https://discord.gg/c4RuJNs) [![Ko-fi](https://img.shields.io/badge/Ko--fi-ff5e5b?logo=kofi&logoColor=white)](https://ko-fi.com/damiansirbu)
 
 [![ci](https://github.com/damiansirbu-stalker/AlifeCompanions/actions/workflows/ci.yml/badge.svg)](https://github.com/damiansirbu-stalker/AlifeCompanions/actions/workflows/ci.yml) [![Project Health](https://img.shields.io/badge/project_health-dashboard-00ced1)](https://damiansirbu-stalker.github.io/AlifeCompanions/)
 
 Requires: Anomaly 1.5.3, modded exes (themrdemonized or AOEngine), [xlibs](https://www.moddb.com/mods/stalker-anomaly/addons/xlibs-1001), MCM. Exact versions in [readme.txt](doc/readme.txt).
+
+## Documentation
+
+- [readme.txt](doc/readme.txt) - full description, compatibility and install
+- [changelog](https://github.com/damiansirbu-stalker/AlifeCompanions/blob/main/doc/changelog) - version history
 
 ## My work
 
@@ -19,11 +26,6 @@ Requires: Anomaly 1.5.3, modded exes (themrdemonized or AOEngine), [xlibs](https
 - Dependents: [COMPASS](https://github.com/Crimento/COMPASS) · [Nemesis Spawn System](https://github.com/SirEndet/Nemesis-Spawn-System) · [Word of Mouth](https://www.moddb.com/mods/stalker-anomaly/addons/word-of-mouth)
 - Integrations: [Warfare (erepb)](https://www.moddb.com/mods/stalker-anomaly/addons/warfare-alife-overhaul-new) · [Homestead](https://www.moddb.com/mods/stalker-anomaly/addons/homestead-stalker-settlement-builder) · [Stealth Overhaul](https://github.com/Alex-leon1594/Stealth_Overhaul_Reworked) · [TALKER](https://www.moddb.com/mods/stalker-anomaly/addons/talker-ai-powered-npc-dialogue-beta) · [Factions of the Zone](https://github.com/devinhorowitz/factionsofthezone) · [Anomaly Radios Extended](https://www.moddb.com/mods/stalker-anomaly/addons/anomaly-radios-extended-full-remaster-152)
 - Collaborations: [xAGNA](https://www.moddb.com/mods/stalker-anomaly/addons/xagna)
-
-## Documentation
-
-- [readme.txt](doc/readme.txt) - full description, the companions, install
-- [changelog](doc/changelog) - version history
 
 ## License
 
