@@ -23,14 +23,11 @@ local function log_error(msg, ...) if log then log.error(msg, ...) end end
 
 local function init_config()
     mcm = zzz_ac_mcm
-    if mcm and mcm.get_config then
-        cfg = {
-            get = function(key) return mcm.get_config(key) end
-        }
+    if mcm and mcm.cfg and mcm.load_config then
+        mcm.load_config()
+        cfg = mcm.cfg
     else
-        cfg = {
-            get = function(key) return data.MCM_DEFAULTS[key] end
-        }
+        cfg = data.MCM_DEFAULTS
     end
 end
 
@@ -58,6 +55,7 @@ local function _notify_companion_death(companion)
 end
 
 local function _on_option_change()
+    if mcm and mcm.load_config then mcm.load_config() end
     if log then
         log.set_level(cfg.debug_log and "DEBUG" or "INFO")
     end

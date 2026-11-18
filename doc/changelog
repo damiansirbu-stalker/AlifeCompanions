@@ -9,6 +9,7 @@
   - Changed the xlibs requirement to 1.5.1.
   - Added a banner and the mod version to the General page, and the mod, xlibs and exe versions to the log at startup.
   - Fixed the Go to Anna and Go to Mila messages, which showed {name} in place of her name on the same map and when she could not be found.
+  - Fixed Enable, Auto-Spawn and Enable Debug Logging, which had no effect. A companion you switch off or take off auto-spawn no longer spawns.
   - Fixed the auto-spawn timer in modpacks that replace the vanilla timer queue, such as demonized time events.
 
 1.0.3
