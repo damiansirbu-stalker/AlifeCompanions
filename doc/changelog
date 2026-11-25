@@ -1,12 +1,12 @@
 1.0.4-snapshot
   The AlifeCompanions name, the modded exes check and fixed teleport messages
     Standalone Companions is now AlifeCompanions, in the MCM, the messages and a separate alifecompanions.log.
-    The load check now stops the game with a message when the modded exes are missing or too old, and when xlibs is older than 1.5.1.
+    The load check now stops the game with a message when the modded exes are missing or too old, and when xlibs is older than 1.10.1.
     Other things you will notice. Teleport messages name the companion, the MCM shows a banner and the live version, and the log names the mod, xlibs and exe versions.
 
   - Changed the mod name to AlifeCompanions in the MCM and the messages. It logs to a separate alifecompanions.log.
   - Added the modded exes check. The game stops at load with a message when it finds neither demonized 20250908 or newer nor AOEngine.
-  - Changed the xlibs requirement to 1.5.1.
+  - Changed the xlibs requirement to 1.10.1.
   - Added a banner and the mod version to the General page, and the mod, xlibs and exe versions to the log at startup.
   - Fixed the Go to Anna and Go to Mila messages, which showed {name} in place of her name on the same map and when she could not be found.
   - Fixed Enable, Auto-Spawn and Enable Debug Logging, which had no effect. A companion you switch off or take off auto-spawn no longer spawns.
