@@ -1,4 +1,4 @@
-Version: 1.0.4-snapshot (xlibs 1.5.1, demonized latest)
+Version: 1.0.4-snapshot (xlibs 1.10.1, demonized latest)
 Changelog: https://github.com/damiansirbu-stalker/AlifeCompanions/blob/main/doc/changelog
 Health: https://damiansirbu-stalker.github.io/AlifeCompanions/health/
 JitProfiler: https://damiansirbu-stalker.github.io/AlifeCompanions/jitprofiler/
